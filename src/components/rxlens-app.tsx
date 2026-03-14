@@ -192,11 +192,31 @@ export function RxLensApp() {
               Client-side pharmacogenomics report generation from 23andMe raw
               data
             </h1>
-            <p className="max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
-              Upload a 23andMe v5 raw file to produce a clinician-ready report
-              for CPIC Level A drug-gene pairs. All parsing and interpretation
-              happen in your browser.
-            </p>
+            <div className="max-w-3xl rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-amber-900">
+              <p className="font-semibold">
+                This is a proof of concept, not a product.
+              </p>
+              <p className="mt-2">
+                I built this tool to explore the pharmacogenomics overhang — the
+                gap between what&apos;s clinically possible and what&apos;s
+                actually deployed. The{' '}
+                <a
+                  href="https://willworth.dev/pharmacogenomics"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium underline hover:text-amber-950"
+                >
+                  accompanying blog post
+                </a>{' '}
+                explains why I wouldn&apos;t upload my own data here, and what I&apos;d
+                recommend instead: clone the repo, ask an agent you trust to
+                audit the code, and run it locally.
+              </p>
+              <p className="mt-2">
+                You&apos;re welcome to try it below — your data genuinely never
+                leaves the browser — but read the post first.
+              </p>
+            </div>
             <div className="inline-flex w-fit rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-900">
               Privacy guarantee: your genetic data never leaves your browser.
             </div>
