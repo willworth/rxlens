@@ -1,0 +1,33 @@
+
+> @willworth/rxlens@0.1.0 build /Users/willworth/code/monorepo/sites/rxlens
+> next build
+
+   ▲ Next.js 15.3.4
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 2000ms
+   Linting and checking validity of types ...
+
+ ⚠ The Next.js plugin was not detected in your ESLint configuration. See https://nextjs.org/docs/app/api-reference/config/eslint#migrating-existing-config
+   Collecting page data ...
+   Generating static pages (0/4) ...
+   Generating static pages (1/4) 
+   Generating static pages (2/4) 
+   Generating static pages (3/4) 
+ ✓ Generating static pages (4/4)
+   Finalizing page optimization ...
+   Collecting build traces ...
+   Exporting (0/3) ...
+ ✓ Exporting (3/3)
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                     530 kB         632 kB
+└ ○ /_not-found                            977 B         102 kB
++ First Load JS shared by all             101 kB
+  ├ chunks/38-dbfa42a817d18f60.js          46 kB
+  ├ chunks/68c08141-17a71343dc37db97.js  53.2 kB
+  └ other shared chunks (total)          1.92 kB
+
+
+○  (Static)  prerendered as static content
+

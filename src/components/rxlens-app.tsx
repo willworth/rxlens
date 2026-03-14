@@ -68,6 +68,7 @@ export function RxLensApp() {
   const [showResults, setShowResults] = useState(false)
   const [pdfUrl, setPdfUrl] = useState<string | null>(null)
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
+  const reviewSectionRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     return () => {
@@ -76,6 +77,15 @@ export function RxLensApp() {
       }
     }
   }, [pdfUrl])
+
+  useEffect(() => {
+    if (parsedData && report && reviewSectionRef.current) {
+      reviewSectionRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }
+  }, [parsedData, report])
 
   const canViewResults = hasAcknowledgedDisclaimer && Boolean(report)
 
@@ -208,9 +218,9 @@ export function RxLensApp() {
                 >
                   accompanying blog post
                 </a>{' '}
-                explains why I wouldn&apos;t upload my own data here, and what I&apos;d
-                recommend instead: clone the repo, ask an agent you trust to
-                audit the code, and run it locally.
+                explains why I wouldn&apos;t upload my own data here, and what
+                I&apos;d recommend instead: clone the repo, ask an agent you
+                trust to audit the code, and run it locally.
               </p>
               <p className="mt-2">
                 You&apos;re welcome to try it below — your data genuinely never
@@ -362,7 +372,10 @@ export function RxLensApp() {
         </section>
 
         {parsedData && report ? (
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <section
+            ref={reviewSectionRef}
+            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8"
+          >
             <h2 className="text-xl font-semibold text-slate-900">
               Review & Acknowledge
             </h2>
