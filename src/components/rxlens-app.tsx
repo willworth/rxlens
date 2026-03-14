@@ -424,26 +424,44 @@ export function RxLensApp() {
                   {report.source}
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={() => {
-                    void generatePdf()
-                  }}
-                  disabled={isGeneratingPdf}
-                  className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-800 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-60"
-                >
-                  {isGeneratingPdf ? 'Generating PDF…' : 'Generate PDF'}
-                </button>
-                {pdfUrl ? (
-                  <a
-                    href={pdfUrl}
-                    download="rxlens-pharmacogenomic-report.pdf"
-                    className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
-                  >
-                    Download PDF
-                  </a>
-                ) : null}
+              <div className="flex flex-wrap items-center gap-3">
+                {typeof window !== 'undefined' &&
+                window.location.hostname === 'localhost' ? (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        void generatePdf()
+                      }}
+                      disabled={isGeneratingPdf}
+                      className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-800 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                      {isGeneratingPdf ? 'Generating PDF…' : 'Generate PDF'}
+                    </button>
+                    {pdfUrl ? (
+                      <a
+                        href={pdfUrl}
+                        download="rxlens-pharmacogenomic-report.pdf"
+                        className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
+                      >
+                        Download PDF
+                      </a>
+                    ) : null}
+                  </>
+                ) : (
+                  <p className="text-sm text-slate-500">
+                    PDF generation is available when{' '}
+                    <a
+                      href="https://github.com/willworth/rxlens"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-slate-700 underline hover:text-slate-900"
+                    >
+                      running locally
+                    </a>
+                    .
+                  </p>
+                )}
               </div>
             </div>
 
